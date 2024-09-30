@@ -9,21 +9,37 @@ console.log("Aufgabe 1")
 // Es soll das Volumen eines Würfels in Quadratzentimeter (cm3) ausgegeben werden. Arbeiten Sie mit einem Objekt und sprechenden Eigenschaften.
 // Geben Sie das Volumen in einem Antwortsatz auf der Konsole aus.
 
-
-
+class wuerfel {
+    constructor() {
+        this.seitenlaenge
+        this.volumen
+    }
+}
+const wuerfel1 = new wuerfel(
+    seitenLaenge=5,
+ volumen=seitenLaenge*seitenLaenge*seitenLaenge,
+);
+ 
+console.log('Das Volumen des Würfels mit einer Seitenlänge von '+seitenLaenge+'cm beträgt: '+volumen+'cm³.');
 
 // 1b 
 // Wenn das Volumen 1000 oder mehr Quadratzentimeter beträgt soll eine Meldung auf der Konsole ausgegeben werden, die besagt,
 // dass das Volumen 1000 oder mehr Quadratzentimeter beträgt.
 
-
+if(volumen>=1000){
+    console.log('Das Volumen beträgt 1000 oder mehr Quadratzentimeter.');
+}else{
+    console.log('Das Volumen beträgt weniger als 1000 Quadratzentimeter.')
+}
 
 
 
 // 1c) - Nur Klausurschreiber
 // Nutzen Sie die Math-Bibliothek .sqrt(), um die Wurzel aus dem Volumen zu errechnen. Geben Sie die Kantenlänge in einem Antwortsatz aus.
 
+let kantenlaenge=Math.sqrt(volumen);
 
+console.log('Die Kantenläge des Würfels beträgt: '+kantenlaenge);
 
 console.log("Aufgabe 2")
 // Sie werden beauftragt ein Schulverwaltungsprogramm für das BKB zu erstellen. Konkret sollen Sie sich in einem ersten Schritt
@@ -33,24 +49,46 @@ console.log("Aufgabe 2")
 // 2a)
 // Definieren Sie die class
 
-
+class zeugnis {
+    constructor() {
+        
+        this.deutsch
+        this.mathe
+        this.englisch
+        this.bwl
+        this.vwl
+        this.spanisch
+        this.informatik
+        this.religion
+        this.klassenbeste
+    }
+}
 
 // 2b)
 // Deklarieren, Instanziieren und Initialisieren Sie ein Objekt von der Zeignisklasse.
-
-
-
+const schueler1 = new zeugnis(
+    deutsch=3,
+    mathe=1,
+    englisch=4,
+    bwl=3,
+    vwl=2,
+    spanisch=5,
+    informatik=1,
+    religion=4,
+    klassenbeste=true,
+);
 
 // 2c)
 // Geben Sie die Eigenschaftswerte Ihres Objekts auf der Konsole aus.
 
-
+console.log('Auf dem Zeugnis sind Max Noten: in Deutsch '+deutsch+', in Mathe '+mathe+', in Englisch '+englisch+', in BWL '+bwl+', in VWL'+vwl+', in Spanisch '+spanisch+', in Informatik '+informatik+' und in Religion '+religion+'.')
 
 // 2d) NUR KLAUSURSCHREIBER
 // Berechnen Sie die Durchnittsnote Ihres Objekts. Geben Sie die Durchschnittsnote auf der Konsole aus.
 
+let durchschnitt=(deutsch+mathe+englisch+bwl+vwl+spanisch+informatik+religion)/8;
 
-
+console.log('Der Notendurchschnitt liegt bei ' +durchschnitt+'.');
 
 // 2e) NUR KLAUSURSCHREIBER
 // Lisa hat die Durchsnittsnote 3, Tom hat die Durschnittsnote 4, Max hat die Durschnittsnote 5
@@ -63,11 +101,13 @@ console.log("Aufgabe 2")
 // Beispiel der Anwendung von Math.min():
 // let x = Math.min(5, 10); --> Es werden 5 und 10 verglichen. x nimmt jetzt den Wert 5 an, da 5 der niedrigste der kommaseparierten Werte ist.
 
+let minimum=Math.min(3,4,5,durchschnitt);
 
+console.log('Das Min. liegt bei '+minimum);
 
-
-
-
+if(durchschnitt<=minimum){
+    console.log(klassenbeste=true)
+}
 console.log("Aufgabe 3")
 // Es gilt:
 // Rabatt = Listenpreis · Rabatt-Prozentsatz : 100 %
@@ -86,15 +126,33 @@ console.log("Aufgabe 3")
 // 3a)
 // Deklarieren, Instanziieren Sie ein Objekt mit allen genannten Eigenschaften. 
 
-
+class produkt {
+    constructor() {
+        this.listenpreis
+        this.rabattProzentsatz
+        this.rabatt
+        this.nettoRechnungsbetrag
+        this.mwstProzentsatz
+        this.mwst
+        this.bruttoRechnungsbetrag
+        this.skonto
+        this.zahlungsbetrag
+    }
+}
 
 
 // 3b
 // Initialisieren Sie Ihr Objekt mit den gegebenen Werten. 
 // Geben Sie die einen Anwortsatz auf der Konsole aus.
 
+const zeitung = new produkt(
+    nettoRechnungsbetrag=370.00,
+    mwstProzentsatz=7,
+    mwst=nettoRechnungsbetrag*mwstProzentsatz/100,
+    bruttoRechnungsbetrag=nettoRechnungsbetrag+mwst,
+);
 
-
+console.log('Das Produkt Zeitung hat einen Netto-Rechnungsbetrag von '+nettoRechnungsbetrag+', eine Mwst von '+mwst+' und einen Brutto-Rechnungsbetrag von '+bruttoRechnungsbetrag+'.');
 // 3c)
 // Berechnen Sie die MwSt in einer sprechenden Variablen. Geben Sie einen Anwortsatz auf der Konsole aus.
 
@@ -126,6 +184,20 @@ console.log("Aufgabe 3")
 
 // Berechnen Sie das Skonto und geben Sie das Ergebnis auf der Konsole aus.
 
+if(bruttoRechnungsbetrag<100){
+    skonto=1;
+}if(bruttoRechnungsbetrag<200){
+    skonto=1.1;
+}if(bruttoRechnungsbetrag<300){
+    skonto=1.4;
+}if(bruttoRechnungsbetrag<400){
+    skonto=1.5;
+}if(bruttoRechnungsbetrag<500){
+    skonto=1.6;
+}
+
+console.log('Der Skonto der Zeitung beträgt '+skonto);
+
 console.log("Aufgabe 4") // NUR KLAUSURSCHREIBER
 
 // Sie wollen Ihre Auto-Kaufentscheidung mit einem Programm stützen.
@@ -134,8 +206,31 @@ console.log("Aufgabe 4") // NUR KLAUSURSCHREIBER
 // Erstellen Sie zwei Auto-Objekte mit den Eigenschaften Name, Leistung, Geschwindigkeit, Preis, Verbrauch
 // Initialisieren Sie mit realsitischen Werten.
 
+class Auto {
+    constructor() {
+        this.nameA
+        this.leistung
+        this.geschwindigkeit
+        this.preis
+        this.verbrauch
+    }
+}
 
+const mercedes = new Auto(
+    nameA="Mercedes AMG",
+    leistung=300,
+    geschwindigkeit=450,
+    preis=800000.00,
+    verbrauch=6,
+);
 
+const astonMartin = new Auto(
+    nameA="Aston Martin Vantage",
+    leistung=360,
+    geschwindigkeit=500,
+    preis=750000.00,
+    verbrauch=6.5,
+);
 
 // 4b) // NUR KLAUSURSCHREIBER
 // Vergleichen Sie die beiden Autos:
@@ -143,3 +238,4 @@ console.log("Aufgabe 4") // NUR KLAUSURSCHREIBER
 // Wenn Preis und Verbrauch gleich sind, dann entscheidet die Geschwindigkeit.
 // Wenn auch die Geschwindigkeit gleich ist, entscheidet die Leistung.
 // Geben Sie entsprechende Antworten auf der Kosnole aus.
+
